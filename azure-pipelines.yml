@@ -11,6 +11,7 @@ pool:
 
 steps:
 - task: Maven@3
+  displayName: "Build & Testing: Compilar Proyecto con Maven"
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
@@ -21,13 +22,14 @@ steps:
     testResultsFiles: '**/target/site/jacoco/index.html'
     goals: 'package'
 - task: PublishTestResults@2
+  displayName: Publicar Resultados de Testing
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST-*.xml'
     testRunTitle: 'Resultados Testing'
 
 - task: Docker@2
-  displayName: Docker imagen build and push
+  displayName: Docker Image Build and Push
   inputs:
     containerRegistry: 'noriegadocker'
     repository: 'noriegadocker/kyndryl-workshop-ci'
