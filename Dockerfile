@@ -1,5 +1,4 @@
-FROM openjdk:11-jre-alpine
-VOLUME /tmp
-ADD build/libs/kyndryl-workshop*.jar app.jar
-ADD .env .env
-ENTRYPOINT [ "sh", "-c", "source .env && java -jar app.jar" ]
+FROM amazoncorretto:11-alpine-jdk
+MAINTAINER omar.noriega
+COPY target/kyndryl-workshop*.jar kyndryl-workshop-1.0.0.jar
+ENTRYPOINT ["java","-jar","/kyndryl-workshop-1.0.0.jar"]
