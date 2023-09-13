@@ -1,0 +1,20 @@
+steps:
+  - task: Maven@3
+    inputs:
+      mavenPomFile: 'pom.xml'
+  - task: AzureSpringCloud@0
+    inputs:
+      azureSubscription: '<your service connection name>'
+      Action: 'Deploy'
+      AzureSpringCloud: <your Azure Spring Apps service>
+      AppName: <app-name>
+      DeploymentType: 'Artifacts'
+      UseStagingDeployment: true
+      Package: ./target/your-result-jar.jar
+  - task: AzureSpringCloud@0
+    inputs:
+      azureSubscription: '<your service connection name>'
+      Action: 'Set Production'
+      AzureSpringCloud: <your Azure Spring Apps service>
+      AppName: <app-name>
+      UseStagingDeployment: true
