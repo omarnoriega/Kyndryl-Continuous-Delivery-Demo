@@ -25,3 +25,9 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST-*.xml'
     testRunTitle: 'Resultados Testing'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'noriegadocker'
+    command: buildAndPush
+    Dockerfile: '**/Dockerfile'
