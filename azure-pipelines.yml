@@ -27,7 +27,11 @@ steps:
     testRunTitle: 'Resultados Testing'
 
 - task: Docker@2
+  displayName: Docker imagen build and push
   inputs:
     containerRegistry: 'noriegadocker'
+    repository: 'kyndryl-workshop'
     command: buildAndPush
     Dockerfile: '**/Dockerfile'
+    buildContext: './'
+    tags: '$(Build.BuildId)'
