@@ -30,7 +30,7 @@ steps:
   displayName: Docker imagen build and push
   inputs:
     containerRegistry: 'noriegadocker'
-    repository: 'kyndryl-workshop'
+    repository: 'kyndryl-workshop-ci'
     command: buildAndPush
     Dockerfile: '**/Dockerfile'
     buildContext: './'
