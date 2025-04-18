@@ -1,4 +1,4 @@
-name: Kyndryl-Continuous-Delivery-Demo/Kyndryl-Continuous-Delivery-Demo
+name: Kyndryl-Continuous-Delivery-Demo
 on:
   push:
     branches:
